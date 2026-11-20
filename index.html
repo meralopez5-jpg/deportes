@@ -3,51 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pensamiento Matemático II - Plataforma E-learning</title>
+    <title>Educación Física y Deportes - Plataforma E-learning</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
-            background-color: #12161f;
-            color: #f0f4f8;
+            background-color: #e0f2fe;
+            color: #0f172a;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         header {
-            background: linear-gradient(135deg, #0d1117 0%, #1e293b 100%);
-            border-bottom: 3px solid #38bdf8;
-            padding: 15px 30px;
+            background-color: #1d4ed8;
+            color: #ffffff;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 3px solid #60a5fa;
         }
 
         .btn-inicio {
-            background-color: #10b981;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 16px;
-            border-radius: 8px;
+            background-color: #ffffff;
+            color: #1d4ed8;
+            border: 2px solid #93c5fd;
+            padding: 8px 14px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
             cursor: pointer;
-            border: none;
         }
 
         .btn-inicio:hover {
-            background-color: #059669;
-            transform: scale(1.03);
+            background-color: #dbeafe;
         }
 
         .titulo-header {
@@ -56,177 +50,207 @@
         }
 
         .titulo-header h1 {
-            font-size: 1.7rem;
-            color: #ffffff;
-            letter-spacing: 0.5px;
+            font-size: 1.5rem;
         }
 
         .titulo-header p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #dbeafe;
+            margin-top: 3px;
         }
 
         main {
             flex-grow: 1;
-            max-width: 960px;
+            max-width: 900px;
             width: 92%;
-            margin: 30px auto;
-            background-color: #1e293b;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 22px;
+            border-radius: 8px;
+            border: 2px solid #93c5fd;
         }
 
-        h2.subtitulo-seccion {
-            text-align: center;
-            color: #38bdf8;
-            font-size: 1.6rem;
+        h2 {
+            color: #1e40af;
+            font-size: 1.4rem;
             margin-bottom: 10px;
+            border-bottom: 2px solid #bfdbfe;
+            padding-bottom: 5px;
         }
 
-        p.descripcion-centro {
-            text-align: center;
-            color: #cbd5e1;
-            margin-bottom: 25px;
+        h3 {
+            color: #1d4ed8;
+            font-size: 1.15rem;
+            margin-top: 15px;
+            margin-bottom: 8px;
         }
 
+        p {
+            margin-bottom: 12px;
+            line-height: 1.55;
+            text-align: justify;
+        }
+
+        a.enlace-externo {
+            color: #1d4ed8;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* MENÚ PRINCIPAL DE 10 OPCIONES */
         .menu-principal {
             list-style: none;
             max-width: 480px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            margin: 15px auto;
+        }
+
+        .menu-principal li {
+            margin-bottom: 8px;
         }
 
         .menu-principal li a,
         .menu-principal li span {
             display: flex;
             align-items: center;
-            padding: 12px 18px;
-            border-radius: 8px;
+            padding: 9px 12px;
+            border-radius: 5px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.25s ease;
-            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95rem;
         }
 
-        .menu-principal li a .numero,
-        .menu-principal li span .numero {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
+        .numero {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
             text-align: center;
-            border-radius: 6px;
-            margin-right: 14px;
-            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 0.85rem;
         }
 
         .opcion-activa a {
-            background-color: #0f172a;
+            background-color: #2563eb;
             color: #ffffff;
-            border-left: 5px solid #10b981;
+            cursor: pointer;
         }
 
         .opcion-activa a .numero {
-            background-color: #10b981;
-            color: #0f172a;
+            background-color: #ffffff;
+            color: #1d4ed8;
         }
 
         .opcion-activa a:hover {
-            background-color: #10b981;
-            color: #0f172a;
-            transform: translateX(8px);
-        }
-
-        .opcion-activa a:hover .numero {
-            background-color: #0f172a;
-            color: #10b981;
+            background-color: #1e40af;
         }
 
         .opcion-pendiente span {
-            background-color: #162032;
+            background-color: #f1f5f9;
             color: #64748b;
-            border-left: 5px solid #475569;
+            border: 1px solid #cbd5e1;
             cursor: not-allowed;
         }
 
         .opcion-pendiente span .numero {
-            background-color: #334155;
-            color: #94a3b8;
+            background-color: #cbd5e1;
+            color: #475569;
         }
 
         .etiqueta-pendiente {
             margin-left: auto;
-            font-size: 0.75rem;
-            background-color: #334155;
-            color: #cbd5e1;
-            padding: 3px 8px;
-            border-radius: 4px;
+            font-size: 0.7rem;
+            background-color: #e2e8f0;
+            color: #475569;
+            padding: 2px 6px;
+            border-radius: 3px;
         }
 
-        .tabla-temario {
+        /* SUBMENÚS (ACTIVIDAD 5) */
+        .submenu-lista {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .submenu-lista li a {
+            display: block;
+            background-color: #eff6ff;
+            color: #1e3a8a;
+            border: 1px solid #93c5fd;
+            border-left: 5px solid #2563eb;
+            padding: 10px 14px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .submenu-lista li a:hover {
+            background-color: #dbeafe;
+        }
+
+        .btn-volver-sub {
+            display: inline-block;
+            margin-bottom: 14px;
+            background-color: #dbeafe;
+            color: #1e3a8a;
+            border: 1px solid #93c5fd;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        /* TABLAS */
+        .tabla-datos {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
-            background-color: #0f172a;
-            border-radius: 8px;
-            overflow: hidden;
+            margin: 14px 0;
         }
 
-        .tabla-temario th {
-            background-color: #0284c7;
+        .tabla-datos th {
+            background-color: #2563eb;
             color: #ffffff;
-            padding: 14px;
+            padding: 9px 10px;
             text-align: left;
-            font-size: 1.05rem;
+            border: 1px solid #1e40af;
         }
 
-        .tabla-temario td {
-            padding: 13px 14px;
-            border-bottom: 1px solid #1e293b;
-            color: #e2e8f0;
+        .tabla-datos td {
+            padding: 9px 10px;
+            border: 1px solid #cbd5e1;
         }
 
-        .tabla-temario tr:hover {
-            background-color: #17253b;
+        .tabla-datos tr:nth-child(even) {
+            background-color: #f0f9ff;
         }
 
-        .contenido-intro p {
-            line-height: 1.7;
-            margin-bottom: 16px;
-            text-align: justify;
-            color: #e2e8f0;
-        }
-
-        .multimedia-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-top: 25px;
-        }
-
-        .tarjeta-media {
-            background-color: #0f172a;
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid #334155;
+        /* IMÁGENES Y VIDEOS */
+        .bloque-media {
+            margin: 15px 0;
             text-align: center;
+            background-color: #f8fafc;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
         }
 
-        .tarjeta-media h3 {
-            color: #38bdf8;
-            margin-bottom: 12px;
-            font-size: 1.15rem;
+        .bloque-media h4 {
+            color: #1e3a8a;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
         }
 
-        .tarjeta-media img {
+        .bloque-media img {
             max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid #38bdf8;
+            width: 440px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #3b82f6;
         }
 
         .video-contenedor {
@@ -234,7 +258,8 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 5px;
+            border: 2px solid #3b82f6;
         }
 
         .video-contenedor iframe {
@@ -246,115 +271,116 @@
             border: none;
         }
 
-        .datos-equipo {
-            background-color: #0f172a;
-            border-left: 5px solid #38bdf8;
-            padding: 18px 22px;
-            border-radius: 8px;
-            margin-bottom: 28px;
-            text-align: center;
+        /* CAJAS DE INSTRUCCIÓN DE ACTIVIDAD */
+        .caja-entrega {
+            background-color: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 12px 15px;
+            margin: 12px 0;
+            border-radius: 4px;
         }
 
-        .datos-equipo h3 {
-            color: #38bdf8;
-            margin-bottom: 10px;
-            text-decoration: underline;
-        }
-
-        .datos-equipo p {
-            margin: 5px 0;
-            font-size: 1rem;
-        }
-
-        .formulario-contacto {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #0f172a;
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #334155;
-        }
-
-        .campo-grupo {
-            margin-bottom: 16px;
-        }
-
-        .campo-grupo label.etiqueta-principal {
-            display: block;
-            font-weight: 600;
+        .caja-entrega p {
             margin-bottom: 6px;
-            color: #bae6fd;
+            text-align: left;
         }
 
-        .campo-grupo input[type="text"],
-        .campo-grupo select,
-        .campo-grupo textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border-radius: 6px;
-            border: 1px solid #475569;
-            background-color: #1e293b;
-            color: #ffffff;
+        .lista-pasos {
+            margin-left: 22px;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        /* FORMULARIO DE CONTACTO SENCILLO */
+        .datos-alumno {
+            background-color: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+        }
+
+        .datos-alumno p {
+            margin-bottom: 4px;
             font-size: 0.95rem;
+            text-align: left;
         }
 
-        .opciones-linea {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            padding-top: 4px;
-        }
-
-        .opciones-linea label {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-        }
-
-        .botones-form {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 22px;
-        }
-
-        .btn-enviar,
-        .btn-borrar {
-            padding: 11px 22px;
-            border: none;
+        .form-sencillo {
+            background-color: #f8fafc;
+            border: 1px solid #93c5fd;
+            padding: 15px;
             border-radius: 6px;
+        }
+
+        .fila-campo {
+            margin-bottom: 12px;
+        }
+
+        .fila-campo label.lbl {
+            display: block;
             font-weight: bold;
-            cursor: pointer;
-            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: #1e3a8a;
+            font-size: 0.9rem;
         }
 
-        .btn-enviar {
-            background-color: #10b981;
+        .fila-campo input[type="text"],
+        .fila-campo input[type="email"],
+        .fila-campo select,
+        .fila-campo textarea {
+            width: 100%;
+            padding: 7px 9px;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            background-color: #ffffff;
             color: #0f172a;
         }
 
-        .btn-enviar:hover {
-            background-color: #059669;
+        .opciones-cortas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+
+        .opciones-cortas label {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .botones-form {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-enviar {
+            background-color: #2563eb;
             color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         .btn-borrar {
-            background-color: #ef4444;
-            color: #ffffff;
-        }
-
-        .btn-borrar:hover {
-            background-color: #dc2626;
+            background-color: #e2e8f0;
+            color: #1e293b;
+            border: 1px solid #94a3b8;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         footer {
+            background-color: #1e3a8a;
+            color: #dbeafe;
             text-align: center;
-            padding: 15px;
-            background-color: #0d1117;
-            color: #64748b;
+            padding: 12px;
             font-size: 0.85rem;
-            border-top: 1px solid #1e293b;
         }
 
         .vista {
@@ -369,213 +395,611 @@
 <body>
 
     <header>
-        <button class="btn-inicio" onclick="cambiarVista('menu')" title="Volver al Menú Principal">&#8962; Inicio</button>
+        <button class="btn-inicio" onclick="cambiarVista('menu')">Inicio</button>
         <div class="titulo-header">
-            <h1>Pensamiento Matemático II - Plataforma E-learning</h1>
-            <p>Submódulo: Construye aplicaciones web | Actividad 4</p>
+            <h1>Educación Física y Deportes - E-learning</h1>
+            <p>Submódulo: Construye aplicaciones web | Prof. Gustavo Bacarlett Pérez</p>
         </div>
     </header>
 
     <main>
-        <!-- VISTA: MENÚ PRINCIPAL -->
+        <!-- ==========================================
+             MENÚ PRINCIPAL (10 OPCIONES OBLIGATORIAS)
+             ========================================== -->
         <div id="vista-menu" class="vista activa">
-            <h2 class="subtitulo-seccion">Menú Principal</h2>
-            <p class="descripcion-centro">Selecciona una de las opciones habilitadas para explorar el curso de Pensamiento Matemático II.</p>
+            <h2>Menú Principal</h2>
+            <p style="text-align: center;">Selecciona una de las opciones habilitadas (Actividades 4 y 5).</p>
 
             <ul class="menu-principal">
                 <li class="opcion-activa">
-                    <a onclick="cambiarVista('temario')">
-                        <span class="numero">1</span> Temario
-                    </a>
+                    <a onclick="cambiarVista('temario')"><span class="numero">1</span> Temario</a>
                 </li>
                 <li class="opcion-activa">
-                    <a onclick="cambiarVista('introduccion')">
-                        <span class="numero">2</span> Introducción
-                    </a>
-                </li>
-                <li class="opcion-pendiente">
-                    <span>
-                        <span class="numero">3</span> Temas a desarrollar
-                        <small class="etiqueta-pendiente">Próximamente</small>
-                    </span>
-                </li>
-                <li class="opcion-pendiente">
-                    <span>
-                        <span class="numero">4</span> Actividades de los alumnos
-                        <small class="etiqueta-pendiente">Próximamente</small>
-                    </span>
-                </li>
-                <li class="opcion-pendiente">
-                    <span>
-                        <span class="numero">5</span> Manuales
-                        <small class="etiqueta-pendiente">Próximamente</small>
-                    </span>
-                </li>
-                <li class="opcion-pendiente">
-                    <span>
-                        <span class="numero">6</span> Problemas o ejercicios
-                        <small class="etiqueta-pendiente">Próximamente</small>
-                    </span>
-                </li>
-                <li class="opcion-pendiente">
-                    <span>
-                        <span class="numero">7</span> Examen en línea
-                        <small class="etiqueta-pendiente">Próximamente</small>
-                    </span>
-                </li>
-                <li class="opcion-pendiente">
-                    <span>
-                        <span class="numero">8</span> Base de datos
-                        <small class="etiqueta-pendiente">Próximamente</small>
-                    </span>
-                </li>
-                <li class="opcion-pendiente">
-                    <span>
-                        <span class="numero">9</span> Reportes
-                        <small class="etiqueta-pendiente">Próximamente</small>
-                    </span>
+                    <a onclick="cambiarVista('introduccion')"><span class="numero">2</span> Introducción</a>
                 </li>
                 <li class="opcion-activa">
-                    <a onclick="cambiarVista('contactos')">
-                        <span class="numero">10</span> Contactos
-                    </a>
+                    <a onclick="cambiarVista('temas-menu')"><span class="numero">3</span> Temas a desarrollar</a>
+                </li>
+                <li class="opcion-activa">
+                    <a onclick="cambiarVista('actividades-menu')"><span class="numero">4</span> Actividades de los alumnos</a>
+                </li>
+                <li class="opcion-pendiente">
+                    <span><span class="numero">5</span> Manuales <small class="etiqueta-pendiente">Próximamente</small></span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span><span class="numero">6</span> Problemas o ejercicios <small class="etiqueta-pendiente">Próximamente</small></span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span><span class="numero">7</span> Examen en línea <small class="etiqueta-pendiente">Próximamente</small></span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span><span class="numero">8</span> Base de datos <small class="etiqueta-pendiente">Próximamente</small></span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span><span class="numero">9</span> Reportes <small class="etiqueta-pendiente">Próximamente</small></span>
+                </li>
+                <li class="opcion-activa">
+                    <a onclick="cambiarVista('contactos')"><span class="numero">10</span> Contactos</a>
                 </li>
             </ul>
         </div>
 
-        <!-- VISTA: TEMARIO -->
+        <!-- ==========================================
+             OPCIÓN 1: TEMARIO (ACTIVIDAD 4)
+             ========================================== -->
         <div id="vista-temario" class="vista">
-            <h2 class="subtitulo-seccion">Temario de Pensamiento Matemático II</h2>
-            <p class="descripcion-centro">Contenidos programáticos correspondientes al curso de Pensamiento Matemático II (Álgebra y Geometría).</p>
+            <h2>1. Temario de Educación Física y Deportes</h2>
+            <p>Contenidos programáticos de la asignatura de semestres anteriores:</p>
 
-            <table class="tabla-temario">
+            <table class="tabla-datos">
                 <thead>
                     <tr>
-                        <th style="width: 12%;">Tema</th>
-                        <th>Contenido</th>
+                        <th style="width: 15%;">Unidad</th>
+                        <th>Tema</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>1</strong></td><td>Lenguaje algebraico y operaciones con polinomios</td></tr>
-                    <tr><td><strong>2</strong></td><td>Productos notables y técnicas de factorización</td></tr>
-                    <tr><td><strong>3</strong></td><td>Ecuaciones lineales de primer grado con una incógnita</td></tr>
-                    <tr><td><strong>4</strong></td><td>Sistemas de ecuaciones lineales (2x2 y 3x3)</td></tr>
-                    <tr><td><strong>5</strong></td><td>Ecuaciones cuadráticas y fórmula general</td></tr>
-                    <tr><td><strong>6</strong></td><td>El plano cartesiano y ubicación de coordenadas</td></tr>
-                    <tr><td><strong>7</strong></td><td>Introducción a la geometría analítica: distancia entre dos puntos y pendiente</td></tr>
+                    <tr><td><strong>Tema 1</strong></td><td>Calentamiento físico y prevención de lesiones</td></tr>
+                    <tr><td><strong>Tema 2</strong></td><td>Capacidades físicas básicas: fuerza, resistencia, velocidad y flexibilidad</td></tr>
+                    <tr><td><strong>Tema 3</strong></td><td>Deportes de conjunto: fundamentos del fútbol y trabajo en equipo</td></tr>
+                    <tr><td><strong>Tema 4</strong></td><td>Básquetbol y voleibol: reglas básicas y coordinación motriz</td></tr>
+                    <tr><td><strong>Tema 5</strong></td><td>Hidratación, alimentación saludable y descanso deportivo</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- VISTA: INTRODUCCIÓN -->
+        <!-- ==========================================
+             OPCIÓN 2: INTRODUCCIÓN (ACTIVIDAD 4)
+             ========================================== -->
         <div id="vista-introduccion" class="vista">
-            <h2 class="subtitulo-seccion">Introducción a Pensamiento Matemático II</h2>
+            <h2>2. Introducción a la Asignatura</h2>
+            <p>
+                La materia de <strong>Educación Física y Deportes</strong> tiene como objetivo principal fomentar hábitos de vida saludable, mejorar las capacidades físicas básicas y promover la convivencia sana mediante la práctica deportiva.
+            </p>
+            <p>
+                A lo largo del curso aprenderás cómo preparar tu cuerpo antes de hacer ejercicio, cómo funcionan los principales deportes individuales y de equipo, y por qué la disciplina y el respeto son esenciales dentro de cualquier cancha.
+            </p>
 
-            <div class="contenido-intro">
-                <p>
-                    <strong>Pensamiento Matemático II</strong> tiene como objetivo principal fortalecer la capacidad de abstracción, razonamiento lógico y modelación matemática mediante el tránsito del pensamiento aritmético hacia el <strong>pensamiento algebraico y geométrico</strong>.
-                </p>
-                <p>
-                    A lo largo de esta asignatura, el estudiante aprende a traducir situaciones de la vida cotidiana y fenómenos científicos al lenguaje simbólico de las ecuaciones y las funciones, utilizando herramientas gráficas como el plano cartesiano para interpretar relaciones entre variables y resolver problemas reales de manera estructurada.
-                </p>
+            <div class="bloque-media">
+                <h4>Práctica Deportiva Escolar</h4>
+                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80" alt="Balón de fútbol en el campo">
             </div>
 
-            <div class="multimedia-grid">
-                <div class="tarjeta-media">
-                    <h3>Lenguaje Algebraico y Ecuaciones Fundamentales</h3>
-                    <img src="ecuaciones.jpg" alt="Pizarrón con ecuaciones matemáticas y fórmulas algebraicas">
-                </div>
-
-                <div class="tarjeta-media">
-                    <h3>Video: El Plano Cartesiano y la Geometría Analítica (Pensamiento Matemático II)</h3>
-                    <div class="video-contenedor">
-                        <iframe 
-                            src="https://www.youtube.com/embed/oYNhnT83GIQ" 
-                            title="Pensamiento Matemático 2 - El Plano Cartesiano y la Geometría Analítica"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+            <div class="bloque-media">
+                <h4>Video: Objetivo y beneficios de hacer deporte</h4>
+                <div class="video-contenedor">
+                    <iframe 
+                        src="https://www.youtube.com/embed/gm880sL24-4" 
+                        title="Beneficios de hacer deporte"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
 
-        <!-- VISTA: CONTACTOS -->
+        <!-- ==========================================
+             OPCIÓN 3: SUBMENÚ TEMAS A DESARROLLAR (ACT. 5)
+             ========================================== -->
+        <div id="vista-temas-menu" class="vista">
+            <h2>3. Temas a Desarrollar</h2>
+            <p>Selecciona uno de los 5 temas de la asignatura para revisar su explicación, tabla de datos, ejemplos y video:</p>
+
+            <ul class="submenu-lista">
+                <li><a onclick="cambiarVista('tema-1')">Tema 1: Calentamiento físico y prevención de lesiones</a></li>
+                <li><a onclick="cambiarVista('tema-2')">Tema 2: Capacidades físicas básicas (fuerza, resistencia, velocidad y flexibilidad)</a></li>
+                <li><a onclick="cambiarVista('tema-3')">Tema 3: Deportes de conjunto: fundamentos del fútbol</a></li>
+                <li><a onclick="cambiarVista('tema-4')">Tema 4: Básquetbol y voleibol: reglas básicas</a></li>
+                <li><a onclick="cambiarVista('tema-5')">Tema 5: Hidratación y alimentación saludable en el deporte</a></li>
+            </ul>
+        </div>
+
+        <!-- TEMA 1 -->
+        <div id="vista-tema-1" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('temas-menu')">&larr; Volver a Temas a desarrollar</button>
+            <h2>Tema 1: Calentamiento físico y prevención de lesiones</h2>
+            <p>
+                El <strong>calentamiento deportivo</strong> es el conjunto de ejercicios suaves que se realizan antes de iniciar una actividad física intensa. Su función es aumentar poco a poco la temperatura de los músculos y preparar el corazón y las articulaciones para evitar desgarros o esguinces.
+            </p>
+            <p>
+                <strong>Ejemplo práctico:</strong> Antes de jugar un partido de fútbol, se realizan 5 minutos de trote suave, seguidos de movimientos circulares de tobillos, rodillas, cadera y hombros, terminando con estiramientos dinámicos de piernas.
+            </p>
+
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Fase del Calentamiento</th>
+                        <th>Duración</th>
+                        <th>Ejemplo de Ejercicio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Movilidad articular</td><td>3 minutos</td><td>Giros suaves de cuello, hombros, cintura y tobillos</td></tr>
+                    <tr><td>Activación cardiovascular</td><td>5 minutos</td><td>Trote ligero o saltos de tijera (jumping jacks)</td></tr>
+                    <tr><td>Estiramientos dinámicos</td><td>4 minutos</td><td>Elevación de rodillas y talones a los glúteos</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Ejemplo de estiramiento y preparación</h4>
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Personas haciendo calentamiento físico">
+            </div>
+
+            <p>
+                Consulta más recomendaciones sobre prevención de lesiones en la guía de <a class="enlace-externo" href="https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" target="_blank">Actividad Física de la Organización Mundial de la Salud (OMS)</a>.
+            </p>
+
+            <div class="bloque-media">
+                <h4>Video de apoyo: Calentamiento antes de entrenar</h4>
+                <div class="video-contenedor">
+                    <iframe src="https://www.youtube.com/embed/4pKly2JojMw" title="Calentamiento físico" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMA 2 -->
+        <div id="vista-tema-2" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('temas-menu')">&larr; Volver a Temas a desarrollar</button>
+            <h2>Tema 2: Capacidades físicas básicas</h2>
+            <p>
+                Las <strong>capacidades físicas básicas</strong> son las cualidades internas que permiten a una persona realizar movimientos deportivos. Todas las personas las tienen y se pueden mejorar mediante el entrenamiento constante en la escuela o en un club deportivo.
+            </p>
+            <p>
+                <strong>Ejemplo práctico:</strong> Un corredor de 100 metros planos necesita principalmente <em>velocidad</em> y <em>fuerza</em> explosiva en las piernas, mientras que un corredor de maratón requiere mucha <em>resistencia</em> aeróbica.
+            </p>
+
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Capacidad</th>
+                        <th>Definición</th>
+                        <th>Ejemplo Deportivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Fuerza</strong></td><td>Capacidad de vencer o sostener una resistencia</td><td>Hacer lagartijas, sentadillas o lanzar un balón medicinal</td></tr>
+                    <tr><td><strong>Resistencia</strong></td><td>Mantener un esfuerzo físico durante mucho tiempo</td><td>Correr 20 minutos seguidos o nadar varias vueltas</td></tr>
+                    <tr><td><strong>Velocidad</strong></td><td>Realizar movimientos en el menor tiempo posible</td><td>Carrera de 50 metros planos o contragolpe en fútbol</td></tr>
+                    <tr><td><strong>Flexibilidad</strong></td><td>Amplitud de movimiento de las articulaciones</td><td>Tocar la punta de los pies sin doblar las rodillas</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Atletismo: Velocidad y Resistencia</h4>
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" alt="Corredores en pista de atletismo">
+            </div>
+
+            <p>
+                Puedes ampliar este tema leyendo sobre entrenamiento en el portal de <a class="enlace-externo" href="https://es.wikipedia.org/wiki/Condici%C3%B3n_f%C3%ADsica" target="_blank">Condición Física y Capacidades Motrices</a>.
+            </p>
+
+            <div class="bloque-media">
+                <h4>Video de apoyo: Las capacidades físicas básicas</h4>
+                <div class="video-contenedor">
+                    <iframe src="https://www.youtube.com/embed/3f91b8sT42U" title="Capacidades físicas básicas" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMA 3 -->
+        <div id="vista-tema-3" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('temas-menu')">&larr; Volver a Temas a desarrollar</button>
+            <h2>Tema 3: Deportes de conjunto: fundamentos del fútbol</h2>
+            <p>
+                El <strong>fútbol</strong> es un deporte de conjunto donde dos equipos de 11 jugadores buscan anotar goles en la portería contraria utilizando principalmente los pies. Para jugarlo bien se requiere dominar fundamentos técnicos individuales y coordinarse con los compañeros.
+            </p>
+            <p>
+                <strong>Ejemplo práctico:</strong> Una jugada de pared consiste en que un jugador da un pase corto a su compañero y corre al espacio vacío para recibir el balón de vuelta, superando así a un defensa.
+            </p>
+
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Fundamento Técnico</th>
+                        <th>¿En qué consiste?</th>
+                        <th>Parte del pie recomendada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Pase</strong></td><td>Enviar el balón con precisión a un compañero</td><td>Parte interna del pie</td></tr>
+                    <tr><td><strong>Conducción</strong></td><td>Avanzar con el balón controlado por la cancha</td><td>Empeine exterior e interior</td></tr>
+                    <tr><td><strong>Recepción</strong></td><td>Amortiguar y controlar un pase recibido</td><td>Parte interna o planta del pie</td></tr>
+                    <tr><td><strong>Tiro a gol</strong></td><td>Golpear el balón con potencia hacia la portería</td><td>Empeine total</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Trabajo en equipo en el fútbol</h4>
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80" alt="Partido de fútbol">
+            </div>
+
+            <p>
+                Consulta las reglas oficiales del juego en el sitio de la <a class="enlace-externo" href="https://www.theifab.com/es/" target="_blank">IFAB - Reglas del Juego del Fútbol</a>.
+            </p>
+
+            <div class="bloque-media">
+                <h4>Video de apoyo: Fundamentos técnicos del fútbol</h4>
+                <div class="video-contenedor">
+                    <iframe src="https://www.youtube.com/embed/yL4z2P1bT2g" title="Fundamentos técnicos del fútbol" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMA 4 -->
+        <div id="vista-tema-4" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('temas-menu')">&larr; Volver a Temas a desarrollar</button>
+            <h2>Tema 4: Básquetbol y voleibol: reglas básicas</h2>
+            <p>
+                Tanto el <strong>básquetbol</strong> como el <strong>voleibol</strong> son deportes de equipo que desarrollan la coordinación ojo-mano, los reflejos y la agilidad. En el básquetbol se busca encestar el balón en un aro a 3.05 metros de altura, mientras que en el voleibol se pasa el balón por encima de una red sin que toque el suelo propio.
+            </p>
+            <p>
+                <strong>Ejemplo práctico:</strong> En voleibol, una jugada clásica de ataque tiene 3 toques: 1) recepción con golpe bajo, 2) colocación con voleo alto cerca de la red y 3) remate hacia la cancha rival.
+            </p>
+
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Básquetbol</th>
+                        <th>Voleibol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Jugadores en cancha</td><td>5 por equipo</td><td>6 por equipo</td></tr>
+                    <tr><td>Forma de puntuación</td><td>Canastas de 1, 2 o 3 puntos</td><td>Sets de 25 puntos (gana el mejor de 5)</td></tr>
+                    <tr><td>Regla clave</td><td>No caminar sin botar el balón (violación de pasos)</td><td>Máximo 3 toques por equipo antes de cruzar la red</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Básquetbol escolar</h4>
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80" alt="Balón de básquetbol en cancha">
+            </div>
+
+            <p>
+                Revisa más sobre las reglas oficiales en la página de la <a class="enlace-externo" href="https://www.fiba.basketball/es" target="_blank">Federación Internacional de Baloncesto (FIBA)</a>.
+            </p>
+
+            <div class="bloque-media">
+                <h4>Video de apoyo: Reglas básicas del básquetbol</h4>
+                <div class="video-contenedor">
+                    <iframe src="https://www.youtube.com/embed/5F_JUvVa410" title="Reglas básicas del básquetbol" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMA 5 -->
+        <div id="vista-tema-5" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('temas-menu')">&larr; Volver a Temas a desarrollar</button>
+            <h2>Tema 5: Hidratación y alimentación saludable en el deporte</h2>
+            <p>
+                Para rendir bien en cualquier deporte no basta con entrenar; también es indispensable darle al cuerpo <strong>agua simple</strong> y alimentos nutritivos. Al sudar se pierden líquidos y sales minerales que deben reponerse antes, durante y después de la actividad física.
+            </p>
+            <p>
+                <strong>Ejemplo práctico:</strong> Un estudiante que tiene entrenamiento por la tarde debe desayunar frutas y proteínas, comer balanceado (como arroz, pollo y verduras) 2 horas antes de entrenar, y tomar agua natural cada 20 minutos durante la práctica.
+            </p>
+
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Grupo de Nutrientes</th>
+                        <th>Función en el Deportista</th>
+                        <th>Ejemplos de Alimentos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Carbohidratos</strong></td><td>Dan energía rápida y sostenida para entrenar</td><td>Avena, arroz, tortilla de maíz, plátano, pasta</td></tr>
+                    <tr><td><strong>Proteínas</strong></td><td>Reparan y fortalecen los músculos después del ejercicio</td><td>Huevo, pollo, pescado, frijoles, lentejas</td></tr>
+                    <tr><td><strong>Agua y minerales</strong></td><td>Regulan la temperatura corporal y evitan calambres</td><td>Agua simple potable, frutas frescas</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Alimentación equilibrada para el rendimiento</h4>
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Comida saludable con frutas y vegetales">
+            </div>
+
+            <p>
+                Consulta el esquema oficial de alimentación en el <a class="enlace-externo" href="https://www.gob.mx/salud/articulos/el-plato-del-bien-comer" target="_blank">Plato del Bien Comer - Secretaría de Salud</a>.
+            </p>
+
+            <div class="bloque-media">
+                <h4>Video de apoyo: Importancia de la hidratación al hacer ejercicio</h4>
+                <div class="video-contenedor">
+                    <iframe src="https://www.youtube.com/embed/9iMGFqMmUFs" title="Importancia de hidratarse" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             OPCIÓN 4: SUBMENÚ ACTIVIDADES DE LOS ALUMNOS (ACT. 5)
+             ========================================== -->
+        <div id="vista-actividades-menu" class="vista">
+            <h2>4. Actividades de los Alumnos</h2>
+            <p>Como asesores del curso, hemos diseñado 5 actividades de aprendizaje (una por cada tema). Selecciona una actividad para ver las instrucciones detalladas, la nomenclatura de entrega y los problemas a resolver:</p>
+
+            <ul class="submenu-lista">
+                <li><a onclick="cambiarVista('act-1')">Actividad 1 (Tema 1): Rutina escrita y cuadro de calentamiento</a></li>
+                <li><a onclick="cambiarVista('act-2')">Actividad 2 (Tema 2): Tabla comparativa y cálculo de capacidades físicas</a></li>
+                <li><a onclick="cambiarVista('act-3')">Actividad 3 (Tema 3): Presentación electrónica de fundamentos del fútbol</a></li>
+                <li><a onclick="cambiarVista('act-4')">Actividad 4 (Tema 4): Ensayo y análisis de reglas de básquetbol y voleibol</a></li>
+                <li><a onclick="cambiarVista('act-5')">Actividad 5 (Tema 5): Plan semanal de hidratación y alimentación deportiva</a></li>
+            </ul>
+        </div>
+
+        <!-- ACTIVIDAD 1 -->
+        <div id="vista-act-1" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('actividades-menu')">&larr; Volver a Actividades de los alumnos</button>
+            <h2>Actividad 1: Diseño de Rutina de Calentamiento</h2>
+            <p><strong>Tema relacionado:</strong> Tema 1 — Calentamiento físico y prevención de lesiones.</p>
+
+            <h3>Actividades del alumno a realizar:</h3>
+            <ol class="lista-pasos">
+                <li>Revisa la información y el video del <a class="enlace-externo" onclick="cambiarVista('tema-1')" style="cursor:pointer;">Tema 1</a>.</li>
+                <li>Elabora un documento en Word con portada escolar, una breve explicación de por qué es obligatorio calentar y una tabla con 6 ejercicios de calentamiento ordenados de pies a cabeza.</li>
+                <li>Resuelve los problemas prácticos que se indican abajo al final de tu documento.</li>
+            </ol>
+
+            <div class="caja-entrega">
+                <p><strong>Nombre del archivo:</strong> <code>DEP_ACT1_AASSO.pdf</code> (Ejemplo: si te llamas Oscar Salinas Sánchez, tu archivo será <code>DEP_ACT1_SASA0.pdf</code>; donde <strong>AA</strong> = 2 primeras letras del apellido paterno, <strong>SS</strong> = 2 primeras del materno y <strong>O</strong> = primera letra del nombre).</p>
+                <p><strong>Dónde enviarlo:</strong> Enviar al correo del asesor: <strong>albertomtz13@gmail.com</strong> con el asunto <em>Entrega Actividad 1 - Deportes</em>.</p>
+            </div>
+
+            <h3>Problemas a resolver:</h3>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Problema</th>
+                        <th>Situación a resolver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Problema 1</strong></td><td>Si una clase de Educación Física dura 50 minutos y el calentamiento debe ocupar el 20% del tiempo total, ¿cuántos minutos exactos debe durar el calentamiento?</td></tr>
+                    <tr><td><strong>Problema 2</strong></td><td>Un alumno entra directo a correr a máxima velocidad sin calentar y sufre un tirón muscular. Explica 2 consecuencias físicas y qué fase del calentamiento omitió.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Referencia visual para tu tabla de ejercicios</h4>
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Calentamiento deportivo">
+            </div>
+        </div>
+
+        <!-- ACTIVIDAD 2 -->
+        <div id="vista-act-2" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('actividades-menu')">&larr; Volver a Actividades de los alumnos</button>
+            <h2>Actividad 2: Evaluación de Capacidades Físicas</h2>
+            <p><strong>Tema relacionado:</strong> Tema 2 — Capacidades físicas básicas (fuerza, resistencia, velocidad y flexibilidad).</p>
+
+            <h3>Actividades del alumno a realizar:</h3>
+            <ol class="lista-pasos">
+                <li>Consulta los conceptos del <a class="enlace-externo" onclick="cambiarVista('tema-2')" style="cursor:pointer;">Tema 2</a>.</li>
+                <li>Realiza una prueba diagnóstica en casa o en la cancha escolar midiendo cuántas sentadillas haces en 1 minuto y cuánto tiempo tardas en correr 50 metros.</li>
+                <li>Entrega una hoja de cálculo o documento con tus resultados, una gráfica sencilla y la solución a los problemas planteados.</li>
+            </ol>
+
+            <div class="caja-entrega">
+                <p><strong>Nombre del archivo:</strong> <code>DEP_ACT2_AASSO.pdf</code> (AA = 2 primeras letras apellido paterno, SS = 2 primeras apellido materno, O = primera letra del nombre).</p>
+                <p><strong>Dónde enviarlo:</strong> Enviar al correo del asesor: <strong>albertomtz13@gmail.com</strong>.</p>
+            </div>
+
+            <h3>Problemas a resolver:</h3>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Problema</th>
+                        <th>Situación a resolver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Problema 1</strong></td><td>Un estudiante recorre 100 metros planos en 16 segundos. Calcula su velocidad promedio en metros por segundo (v = d / t).</td></tr>
+                    <tr><td><strong>Problema 2</strong></td><td>En una prueba de resistencia, un alumno da 6 vueltas a una pista de 400 metros en 12 minutos. ¿Qué distancia total recorrió en kilómetros?</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Pruebas de pista y medición de tiempos</h4>
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" alt="Atletismo en pista">
+            </div>
+        </div>
+
+        <!-- ACTIVIDAD 3 -->
+        <div id="vista-act-3" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('actividades-menu')">&larr; Volver a Actividades de los alumnos</button>
+            <h2>Actividad 3: Presentación Electrónica del Fútbol</h2>
+            <p><strong>Tema relacionado:</strong> Tema 3 — Deportes de conjunto: fundamentos del fútbol.</p>
+
+            <h3>Actividades del alumno a realizar:</h3>
+            <ol class="lista-pasos">
+                <li>Estudia los 4 fundamentos técnicos vistos en el <a class="enlace-externo" onclick="cambiarVista('tema-3')" style="cursor:pointer;">Tema 3</a>.</li>
+                <li>Crea una presentación electrónica en PowerPoint de 6 diapositivas ilustrando: portada, pase, conducción, recepción, tiro a gol y solución a los problemas tácticos.</li>
+                <li>Guarda tu presentación en formato PDF para enviarla por correo.</li>
+            </ol>
+
+            <div class="caja-entrega">
+                <p><strong>Nombre del archivo:</strong> <code>DEP_ACT3_AASSO.pdf</code> (AA = 2 primeras letras apellido paterno, SS = 2 primeras apellido materno, O = primera letra del nombre).</p>
+                <p><strong>Dónde enviarlo:</strong> Enviar al correo del asesor: <strong>albertomtz13@gmail.com</strong>.</p>
+            </div>
+
+            <h3>Problemas a resolver:</h3>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Problema</th>
+                        <th>Situación a resolver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Problema 1</strong></td><td>En un torneo escolar de fútbol participan 6 equipos y juegan todos contra todos a una sola vuelta. ¿Cuántos partidos se jugarán en total?</td></tr>
+                    <tr><td><strong>Problema 2</strong></td><td>Si un equipo gana 3 partidos (3 puntos c/u), empata 1 partido (1 punto) y pierde 1 partido (0 puntos), ¿cuántos puntos acumuló en la tabla?</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Fundamentos del fútbol</h4>
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80" alt="Balón y cancha de fútbol">
+            </div>
+        </div>
+
+        <!-- ACTIVIDAD 4 -->
+        <div id="vista-act-4" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('actividades-menu')">&larr; Volver a Actividades de los alumnos</button>
+            <h2>Actividad 4: Ensayo y Reglas de Básquetbol y Voleibol</h2>
+            <p><strong>Tema relacionado:</strong> Tema 4 — Básquetbol y voleibol: reglas básicas y coordinación motriz.</p>
+
+            <h3>Actividades del alumno a realizar:</h3>
+            <ol class="lista-pasos">
+                <li>Lee la tabla comparativa del <a class="enlace-externo" onclick="cambiarVista('tema-4')" style="cursor:pointer;">Tema 4</a>.</li>
+                <li>Redacta un ensayo de 1 cuartilla explicando las diferencias entre el básquetbol y el voleibol, destacando la importancia de la comunicación entre compañeros.</li>
+                <li>Incluye al final del ensayo las respuestas correctas a los problemas de puntuación.</li>
+            </ol>
+
+            <div class="caja-entrega">
+                <p><strong>Nombre del archivo:</strong> <code>DEP_ACT4_AASSO.pdf</code> (AA = 2 primeras letras apellido paterno, SS = 2 primeras apellido materno, O = primera letra del nombre).</p>
+                <p><strong>Dónde enviarlo:</strong> Enviar al correo del asesor: <strong>albertomtz13@gmail.com</strong>.</p>
+            </div>
+
+            <h3>Problemas a resolver:</h3>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Problema</th>
+                        <th>Situación a resolver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Problema 1</strong></td><td>En un partido de básquetbol, un equipo encesta 14 tiros de 2 puntos, 5 triples (3 puntos) y 7 tiros libres (1 punto). ¿Cuál fue su marcador final?</td></tr>
+                    <tr><td><strong>Problema 2</strong></td><td>En voleibol, el marcador va 24-24 en el primer set. ¿Cuántos puntos mínimos necesita anotar un equipo de forma consecutiva para ganar ese set?</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Deportes de cancha</h4>
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80" alt="Balón de básquetbol">
+            </div>
+        </div>
+
+        <!-- ACTIVIDAD 5 -->
+        <div id="vista-act-5" class="vista">
+            <button class="btn-volver-sub" onclick="cambiarVista('actividades-menu')">&larr; Volver a Actividades de los alumnos</button>
+            <h2>Actividad 5: Plan Semanal de Hidratación y Alimentación</h2>
+            <p><strong>Tema relacionado:</strong> Tema 5 — Hidratación, alimentación saludable y descanso deportivo.</p>
+
+            <h3>Actividades del alumno a realizar:</h3>
+            <ol class="lista-pasos">
+                <li>Consulta los grupos de nutrientes en el <a class="enlace-externo" onclick="cambiarVista('tema-5')" style="cursor:pointer;">Tema 5</a>.</li>
+                <li>Diseña una tabla con un menú saludable de lunes a viernes para un estudiante deportista (desayuno, comida, cena y litros de agua al día).</li>
+                <li>Resuelve los cálculos de hidratación diaria que aparecen en la tabla inferior.</li>
+            </ol>
+
+            <div class="caja-entrega">
+                <p><strong>Nombre del archivo:</strong> <code>DEP_ACT5_AASSO.pdf</code> (AA = 2 primeras letras apellido paterno, SS = 2 primeras apellido materno, O = primera letra del nombre).</p>
+                <p><strong>Dónde enviarlo:</strong> Enviar al correo del asesor: <strong>albertomtz13@gmail.com</strong>.</p>
+            </div>
+
+            <h3>Problemas a resolver:</h3>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Problema</th>
+                        <th>Situación a resolver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Problema 1</strong></td><td>Se recomienda tomar 35 ml de agua por cada kilogramo de peso corporal. Si un estudiante pesa 60 kg, ¿cuántos litros de agua debe beber al día?</td></tr>
+                    <tr><td><strong>Problema 2</strong></td><td>Durante un entrenamiento de 1 hora, un jugador toma 250 ml de agua cada 15 minutos. ¿Cuántos mililitros de agua consumió en total?</td></tr>
+                </tbody>
+            </table>
+
+            <div class="bloque-media">
+                <h4>Nutrición para estudiantes deportistas</h4>
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Alimentación saludable">
+            </div>
+        </div>
+
+        <!-- ==========================================
+             OPCIÓN 10: CONTACTOS (ACTIVIDAD 4)
+             ========================================== -->
         <div id="vista-contactos" class="vista">
-            <div class="datos-equipo">
-                <h3>Plataforma de e-learning desarrollada por:</h3>
-                <p><strong>Integrante:</strong> Nombre del Alumno</p>
-                <p><strong>Grupo:</strong> 6°. AVP</p>
+            <div class="datos-alumno">
+                <h3 style="margin-top: 0;">Integrantes del Equipo:</h3>
+                <p><strong>Nombre:</strong> Nombre del Alumno</p>
+                <p><strong>Grupo:</strong> 3er Semestre de Preparatoria</p>
                 <p><strong>Correo de contacto:</strong> albertomtz13@gmail.com</p>
             </div>
 
-            <h2 class="subtitulo-seccion">Contacto</h2>
-            <p class="descripcion-centro">Completa tus datos generales para enviar tus comentarios o dudas sobre la plataforma.</p>
+            <h2>10. Contactos</h2>
+            <p>Completa el siguiente formulario con tus datos generales para enviar tus comentarios o dudas al correo del integrante.</p>
 
-            <form class="formulario-contacto" action="mailto:albertomtz13@gmail.com" method="post" enctype="text/plain">
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal" for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="Nombre" required>
+            <form class="form-sencillo" action="mailto:albertomtz13@gmail.com" method="post" enctype="text/plain">
+                <div class="fila-campo">
+                    <label class="lbl" for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="Nombre_Completo" required>
                 </div>
 
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal" for="apellido1">Primer Apellido:</label>
-                    <input type="text" id="apellido1" name="Primer_Apellido" required>
+                <div class="fila-campo">
+                    <label class="lbl" for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="Correo" required>
                 </div>
 
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal" for="apellido2">Segundo Apellido:</label>
-                    <input type="text" id="apellido2" name="Segundo_Apellido" required>
+                <div class="fila-campo">
+                    <label class="lbl" for="grupo">Grupo / Semestre:</label>
+                    <input type="text" id="grupo" name="Grupo" placeholder="Ej. 3er Semestre" required>
                 </div>
 
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal" for="domicilio">Domicilio:</label>
-                    <input type="text" id="domicilio" name="Domicilio" required>
+                <div class="fila-campo">
+                    <label class="lbl" for="deporte">Deporte de interés:</label>
+                    <select id="deporte" name="Deporte_Interes">
+                        <option value="Fútbol">Fútbol</option>
+                        <option value="Básquetbol">Básquetbol</option>
+                        <option value="Voleibol">Voleibol</option>
+                        <option value="Atletismo">Atletismo</option>
+                    </select>
                 </div>
 
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal">Sexo:</label>
-                    <div class="opciones-linea">
+                <div class="fila-campo">
+                    <label class="lbl">Sexo:</label>
+                    <div class="opciones-cortas">
                         <label><input type="radio" name="Sexo" value="Hombre" required> Hombre</label>
                         <label><input type="radio" name="Sexo" value="Mujer"> Mujer</label>
                     </div>
                 </div>
 
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal">Estudios:</label>
-                    <div class="opciones-linea">
-                        <label><input type="checkbox" name="Estudios" value="Secundaria"> Secundaria</label>
-                        <label><input type="checkbox" name="Estudios" value="Bachillerato"> Bachillerato</label>
-                        <label><input type="checkbox" name="Estudios" value="Licenciatura"> Licenciatura</label>
-                        <label><input type="checkbox" name="Estudios" value="Posgrado"> Posgrado</label>
-                    </div>
-                </div>
-
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal" for="edad">¿Cuál es tu rango de edad? (elija solo uno):</label>
-                    <select id="edad" name="Rango_Edad">
-                        <option value="Menor de 18">Menor de 18</option>
-                        <option value="18 a 25 años">18 a 25 años</option>
-                        <option value="26 a 40 años">26 a 40 años</option>
-                        <option value="Mayor de 40">Mayor de 40</option>
-                    </select>
-                </div>
-
-                <div class="campo-grupo">
-                    <label class="etiqueta-principal" for="comentarios">Comentarios y observaciones:</label>
-                    <textarea id="comentarios" name="Comentarios" rows="4" placeholder="No olvides firmar tu comentario."></textarea>
+                <div class="fila-campo">
+                    <label class="lbl" for="mensaje">Comentarios o dudas:</label>
+                    <textarea id="mensaje" name="Mensaje" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
                 </div>
 
                 <div class="botones-form">
                     <button type="submit" class="btn-enviar">Enviar datos</button>
-                    <button type="reset" class="btn-borrar">Borrar datos</button>
+                    <button type="reset" class="btn-borrar">Limpiar</button>
                 </div>
             </form>
         </div>
     </main>
 
     <footer>
-        Plataforma E-learning &bull; Pensamiento Matemático II &bull; Construye aplicaciones web
+        Plataforma E-learning &bull; Educación Física y Deportes &bull; Submódulo: Construye aplicaciones web
     </footer>
 
     <script>
