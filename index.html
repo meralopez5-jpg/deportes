@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pensamiento Matemático II - Plataforma E-learning</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #12161f;
+            color: #f0f4f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d1117 0%, #1e293b 100%);
+            border-bottom: 3px solid #38bdf8;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn-inicio {
+            background-color: #10b981;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-inicio:hover {
+            background-color: #059669;
+            transform: scale(1.03);
+        }
+
+        .titulo-header {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .titulo-header h1 {
+            font-size: 1.7rem;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .titulo-header p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        main {
+            flex-grow: 1;
+            max-width: 960px;
+            width: 92%;
+            margin: 30px auto;
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+        }
+
+        h2.subtitulo-seccion {
+            text-align: center;
+            color: #38bdf8;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        p.descripcion-centro {
+            text-align: center;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .menu-principal {
+            list-style: none;
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .menu-principal li a,
+        .menu-principal li span {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .menu-principal li a .numero,
+        .menu-principal li span .numero {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 6px;
+            margin-right: 14px;
+            font-weight: bold;
+        }
+
+        .opcion-activa a {
+            background-color: #0f172a;
+            color: #ffffff;
+            border-left: 5px solid #10b981;
+        }
+
+        .opcion-activa a .numero {
+            background-color: #10b981;
+            color: #0f172a;
+        }
+
+        .opcion-activa a:hover {
+            background-color: #10b981;
+            color: #0f172a;
+            transform: translateX(8px);
+        }
+
+        .opcion-activa a:hover .numero {
+            background-color: #0f172a;
+            color: #10b981;
+        }
+
+        .opcion-pendiente span {
+            background-color: #162032;
+            color: #64748b;
+            border-left: 5px solid #475569;
+            cursor: not-allowed;
+        }
+
+        .opcion-pendiente span .numero {
+            background-color: #334155;
+            color: #94a3b8;
+        }
+
+        .etiqueta-pendiente {
+            margin-left: auto;
+            font-size: 0.75rem;
+            background-color: #334155;
+            color: #cbd5e1;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .tabla-temario {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #0f172a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tabla-temario th {
+            background-color: #0284c7;
+            color: #ffffff;
+            padding: 14px;
+            text-align: left;
+            font-size: 1.05rem;
+        }
+
+        .tabla-temario td {
+            padding: 13px 14px;
+            border-bottom: 1px solid #1e293b;
+            color: #e2e8f0;
+        }
+
+        .tabla-temario tr:hover {
+            background-color: #17253b;
+        }
+
+        .contenido-intro p {
+            line-height: 1.7;
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #e2e8f0;
+        }
+
+        .multimedia-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 25px;
+        }
+
+        .tarjeta-media {
+            background-color: #0f172a;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            text-align: center;
+        }
+
+        .tarjeta-media h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
+
+        .tarjeta-media img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #38bdf8;
+        }
+
+        .video-contenedor {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .video-contenedor iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .datos-equipo {
+            background-color: #0f172a;
+            border-left: 5px solid #38bdf8;
+            padding: 18px 22px;
+            border-radius: 8px;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .datos-equipo h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .datos-equipo p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .formulario-contacto {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #0f172a;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .campo-grupo {
+            margin-bottom: 16px;
+        }
+
+        .campo-grupo label.etiqueta-principal {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #bae6fd;
+        }
+
+        .campo-grupo input[type="text"],
+        .campo-grupo select,
+        .campo-grupo textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background-color: #1e293b;
+            color: #ffffff;
+            font-size: 0.95rem;
+        }
+
+        .opciones-linea {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding-top: 4px;
+        }
+
+        .opciones-linea label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .botones-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 22px;
+        }
+
+        .btn-enviar,
+        .btn-borrar {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-enviar {
+            background-color: #10b981;
+            color: #0f172a;
+        }
+
+        .btn-enviar:hover {
+            background-color: #059669;
+            color: #ffffff;
+        }
+
+        .btn-borrar {
+            background-color: #ef4444;
+            color: #ffffff;
+        }
+
+        .btn-borrar:hover {
+            background-color: #dc2626;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #0d1117;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        .vista {
+            display: none;
+        }
+
+        .vista.activa {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="btn-inicio" onclick="cambiarVista('menu')" title="Volver al Menú Principal">&#8962; Inicio</button>
+        <div class="titulo-header">
+            <h1>Pensamiento Matemático II - Plataforma E-learning</h1>
+            <p>Submódulo: Construye aplicaciones web | Actividad 4</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- VISTA: MENÚ PRINCIPAL -->
+        <div id="vista-menu" class="vista activa">
+            <h2 class="subtitulo-seccion">Menú Principal</h2>
+            <p class="descripcion-centro">Selecciona una de las opciones habilitadas para explorar el curso de Pensamiento Matemático II.</p>
+
+            <ul class="menu-principal">
+                <li class="opcion-activa">
+                    <a onclick="cambiarVista('temario')">
+                        <span class="numero">1</span> Temario
+                    </a>
+                </li>
+                <li class="opcion-activa">
+                    <a onclick="cambiarVista('introduccion')">
+                        <span class="numero">2</span> Introducción
+                    </a>
+                </li>
+                <li class="opcion-pendiente">
+                    <span>
+                        <span class="numero">3</span> Temas a desarrollar
+                        <small class="etiqueta-pendiente">Próximamente</small>
+                    </span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span>
+                        <span class="numero">4</span> Actividades de los alumnos
+                        <small class="etiqueta-pendiente">Próximamente</small>
+                    </span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span>
+                        <span class="numero">5</span> Manuales
+                        <small class="etiqueta-pendiente">Próximamente</small>
+                    </span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span>
+                        <span class="numero">6</span> Problemas o ejercicios
+                        <small class="etiqueta-pendiente">Próximamente</small>
+                    </span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span>
+                        <span class="numero">7</span> Examen en línea
+                        <small class="etiqueta-pendiente">Próximamente</small>
+                    </span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span>
+                        <span class="numero">8</span> Base de datos
+                        <small class="etiqueta-pendiente">Próximamente</small>
+                    </span>
+                </li>
+                <li class="opcion-pendiente">
+                    <span>
+                        <span class="numero">9</span> Reportes
+                        <small class="etiqueta-pendiente">Próximamente</small>
+                    </span>
+                </li>
+                <li class="opcion-activa">
+                    <a onclick="cambiarVista('contactos')">
+                        <span class="numero">10</span> Contactos
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- VISTA: TEMARIO -->
+        <div id="vista-temario" class="vista">
+            <h2 class="subtitulo-seccion">Temario de Pensamiento Matemático II</h2>
+            <p class="descripcion-centro">Contenidos programáticos correspondientes al curso de Pensamiento Matemático II (Álgebra y Geometría).</p>
+
+            <table class="tabla-temario">
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Tema</th>
+                        <th>Contenido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>1</strong></td><td>Lenguaje algebraico y operaciones con polinomios</td></tr>
+                    <tr><td><strong>2</strong></td><td>Productos notables y técnicas de factorización</td></tr>
+                    <tr><td><strong>3</strong></td><td>Ecuaciones lineales de primer grado con una incógnita</td></tr>
+                    <tr><td><strong>4</strong></td><td>Sistemas de ecuaciones lineales (2x2 y 3x3)</td></tr>
+                    <tr><td><strong>5</strong></td><td>Ecuaciones cuadráticas y fórmula general</td></tr>
+                    <tr><td><strong>6</strong></td><td>El plano cartesiano y ubicación de coordenadas</td></tr>
+                    <tr><td><strong>7</strong></td><td>Introducción a la geometría analítica: distancia entre dos puntos y pendiente</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- VISTA: INTRODUCCIÓN -->
+        <div id="vista-introduccion" class="vista">
+            <h2 class="subtitulo-seccion">Introducción a Pensamiento Matemático II</h2>
+
+            <div class="contenido-intro">
+                <p>
+                    <strong>Pensamiento Matemático II</strong> tiene como objetivo principal fortalecer la capacidad de abstracción, razonamiento lógico y modelación matemática mediante el tránsito del pensamiento aritmético hacia el <strong>pensamiento algebraico y geométrico</strong>.
+                </p>
+                <p>
+                    A lo largo de esta asignatura, el estudiante aprende a traducir situaciones de la vida cotidiana y fenómenos científicos al lenguaje simbólico de las ecuaciones y las funciones, utilizando herramientas gráficas como el plano cartesiano para interpretar relaciones entre variables y resolver problemas reales de manera estructurada.
+                </p>
+            </div>
+
+            <div class="multimedia-grid">
+                <div class="tarjeta-media">
+                    <h3>Lenguaje Algebraico y Ecuaciones Fundamentales</h3>
+                    <img src="ecuaciones.jpg" alt="Pizarrón con ecuaciones matemáticas y fórmulas algebraicas">
+                </div>
+
+                <div class="tarjeta-media">
+                    <h3>Video: El Plano Cartesiano y la Geometría Analítica (Pensamiento Matemático II)</h3>
+                    <div class="video-contenedor">
+                        <iframe 
+                            src="https://www.youtube.com/embed/oYNhnT83GIQ" 
+                            title="Pensamiento Matemático 2 - El Plano Cartesiano y la Geometría Analítica"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA: CONTACTOS -->
+        <div id="vista-contactos" class="vista">
+            <div class="datos-equipo">
+                <h3>Plataforma de e-learning desarrollada por:</h3>
+                <p><strong>Integrante:</strong> Nombre del Alumno</p>
+                <p><strong>Grupo:</strong> 6°. AVP</p>
+                <p><strong>Correo de contacto:</strong> albertomtz13@gmail.com</p>
+            </div>
+
+            <h2 class="subtitulo-seccion">Contacto</h2>
+            <p class="descripcion-centro">Completa tus datos generales para enviar tus comentarios o dudas sobre la plataforma.</p>
+
+            <form class="formulario-contacto" action="mailto:albertomtz13@gmail.com" method="post" enctype="text/plain">
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal" for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="Nombre" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal" for="apellido1">Primer Apellido:</label>
+                    <input type="text" id="apellido1" name="Primer_Apellido" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal" for="apellido2">Segundo Apellido:</label>
+                    <input type="text" id="apellido2" name="Segundo_Apellido" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal" for="domicilio">Domicilio:</label>
+                    <input type="text" id="domicilio" name="Domicilio" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal">Sexo:</label>
+                    <div class="opciones-linea">
+                        <label><input type="radio" name="Sexo" value="Hombre" required> Hombre</label>
+                        <label><input type="radio" name="Sexo" value="Mujer"> Mujer</label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal">Estudios:</label>
+                    <div class="opciones-linea">
+                        <label><input type="checkbox" name="Estudios" value="Secundaria"> Secundaria</label>
+                        <label><input type="checkbox" name="Estudios" value="Bachillerato"> Bachillerato</label>
+                        <label><input type="checkbox" name="Estudios" value="Licenciatura"> Licenciatura</label>
+                        <label><input type="checkbox" name="Estudios" value="Posgrado"> Posgrado</label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal" for="edad">¿Cuál es tu rango de edad? (elija solo uno):</label>
+                    <select id="edad" name="Rango_Edad">
+                        <option value="Menor de 18">Menor de 18</option>
+                        <option value="18 a 25 años">18 a 25 años</option>
+                        <option value="26 a 40 años">26 a 40 años</option>
+                        <option value="Mayor de 40">Mayor de 40</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="etiqueta-principal" for="comentarios">Comentarios y observaciones:</label>
+                    <textarea id="comentarios" name="Comentarios" rows="4" placeholder="No olvides firmar tu comentario."></textarea>
+                </div>
+
+                <div class="botones-form">
+                    <button type="submit" class="btn-enviar">Enviar datos</button>
+                    <button type="reset" class="btn-borrar">Borrar datos</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        Plataforma E-learning &bull; Pensamiento Matemático II &bull; Construye aplicaciones web
+    </footer>
+
+    <script>
+        function cambiarVista(nombreVista) {
+            const vistas = document.querySelectorAll('.vista');
+            vistas.forEach(v => v.classList.remove('activa'));
+            
+            const vistaSeleccionada = document.getElementById('vista-' + nombreVista);
+            if (vistaSeleccionada) {
+                vistaSeleccionada.classList.add('activa');
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+
+</body>
+</html>
